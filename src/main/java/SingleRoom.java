@@ -45,7 +45,7 @@ public class SingleRoom extends Room {
         System.out.println("Price per Night: $" + String.format("%.2f", pricePerNight));
         System.out.println("Amenities: ");
         for (String amenity : amenities) {
-            System.out.println("  • " + amenity);
+            System.out.println("  ??? " + amenity);
         }
     }
     

@@ -103,7 +103,7 @@ public class UseCase10BookingCancellation {
             // Add to booking history
             bookingHistory.addConfirmedBooking(booking, getRoomPrice(booking.getRoomTypeRequested()), 0.0);
 
-            System.out.println("  ✓ Confirmed: " + booking.getSummary() +
+            System.out.println("  ??? Confirmed: " + booking.getSummary() +
                              " (Room: " + allocatedRoomIds[i] + ")");
         }
 
@@ -200,7 +200,7 @@ public class UseCase10BookingCancellation {
         System.out.println("   - Simplifies rollback implementation");
         System.out.println();
         System.out.println("2. Controlled State Reversal");
-        System.out.println("   - Strict order: validate → update status → restore inventory → track release");
+        System.out.println("   - Strict order: validate ??? update status ??? restore inventory ??? track release");
         System.out.println("   - Prevents partial rollbacks and inconsistent states");
         System.out.println("   - Atomic operations maintain system integrity");
         System.out.println();
