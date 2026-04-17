@@ -65,16 +65,16 @@ public class UseCase3InventorySetup {
         String roomTypeToBook = "Single Room";
         System.out.println("\nAttempting to book: " + roomTypeToBook);
         if (inventory.bookRoom(roomTypeToBook)) {
-            System.out.println("✓ Booking successful!");
+            System.out.println("??? Booking successful!");
             System.out.println("  Current availability after booking: " + inventory.getAvailability(roomTypeToBook) + " rooms");
         } else {
-            System.out.println("✗ Booking failed - No rooms available");
+            System.out.println("??? Booking failed - No rooms available");
         }
         
         // Book another single room
         System.out.println("\nAttempting to book another: " + roomTypeToBook);
         if (inventory.bookRoom(roomTypeToBook)) {
-            System.out.println("✓ Booking successful!");
+            System.out.println("??? Booking successful!");
             System.out.println("  Current availability after booking: " + inventory.getAvailability(roomTypeToBook) + " rooms");
         }
         
@@ -82,7 +82,7 @@ public class UseCase3InventorySetup {
         String doubleRoomType = "Double Room";
         System.out.println("\nAttempting to book: " + doubleRoomType);
         if (inventory.bookRoom(doubleRoomType)) {
-            System.out.println("✓ Booking successful!");
+            System.out.println("??? Booking successful!");
             System.out.println("  Current availability after booking: " + inventory.getAvailability(doubleRoomType) + " rooms");
         }
         
@@ -96,7 +96,7 @@ public class UseCase3InventorySetup {
         System.out.println("=========================================");
         System.out.println("\nCancelling booking for: " + roomTypeToBook);
         inventory.releaseRoom(roomTypeToBook);
-        System.out.println("✓ Room released successfully!");
+        System.out.println("??? Room released successfully!");
         System.out.println("  Current availability after release: " + inventory.getAvailability(roomTypeToBook) + " rooms");
         
         // Display final inventory state
@@ -116,19 +116,19 @@ public class UseCase3InventorySetup {
         // Display benefits summary
         System.out.println("\n[BENEFITS OF CENTRALIZED INVENTORY MANAGEMENT]");
         System.out.println("=========================================");
-        System.out.println("✓ Single Source of Truth");
+        System.out.println("??? Single Source of Truth");
         System.out.println("  - All availability data in one HashMap");
         System.out.println("  - No scattered variables causing inconsistency");
         System.out.println();
-        System.out.println("✓ O(1) Constant-Time Operations");
+        System.out.println("??? O(1) Constant-Time Operations");
         System.out.println("  - HashMap.get() and HashMap.put() are O(1) average case");
         System.out.println("  - Fast availability lookups regardless of inventory size");
         System.out.println();
-        System.out.println("✓ Scalability");
+        System.out.println("??? Scalability");
         System.out.println("  - Adding new room types only requires put() operation");
         System.out.println("  - No changes to reservation or booking logic needed");
         System.out.println();
-        System.out.println("✓ Encapsulation");
+        System.out.println("??? Encapsulation");
         System.out.println("  - Inventory logic contained in RoomInventory class");
         System.out.println("  - Controlled access through dedicated methods");
         System.out.println("  - Ensures data consistency and prevents misuse");

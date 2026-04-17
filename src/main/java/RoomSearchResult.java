@@ -87,7 +87,7 @@ public class RoomSearchResult {
         System.out.println("Available: " + availableCount + " rooms");
         System.out.println("Amenities: ");
         for (String amenity : amenities) {
-            System.out.println("  • " + amenity);
+            System.out.println("  ??? " + amenity);
         }
     }
 }

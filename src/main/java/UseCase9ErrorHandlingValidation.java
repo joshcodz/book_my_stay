@@ -89,9 +89,9 @@ public class UseCase9ErrorHandlingValidation {
             Reservation res = validReservations[i];
             try {
                 validationService.validateReservation(res, roomInventory);
-                System.out.println("  ✓ Reservation " + (i + 1) + " validated successfully: " + res.getSummary());
+                System.out.println("  ??? Reservation " + (i + 1) + " validated successfully: " + res.getSummary());
             } catch (BookingValidationException e) {
-                System.out.println("  ✗ Unexpected validation failure: " + e.getUserFriendlyMessage());
+                System.out.println("  ??? Unexpected validation failure: " + e.getUserFriendlyMessage());
             }
         }
 
@@ -135,9 +135,9 @@ public class UseCase9ErrorHandlingValidation {
             Reservation res = invalidReservations[i];
             try {
                 validationService.validateReservation(res, roomInventory);
-                System.out.println("  ✗ Validation should have failed for case " + (i + 1));
+                System.out.println("  ??? Validation should have failed for case " + (i + 1));
             } catch (BookingValidationException e) {
-                System.out.println("  ✓ Case " + (i + 1) + " correctly failed: " +
+                System.out.println("  ??? Case " + (i + 1) + " correctly failed: " +
                                  e.getErrorType() + " - " + e.getMessage());
             }
         }
@@ -154,12 +154,12 @@ public class UseCase9ErrorHandlingValidation {
             validationService.validateReservation(validBooking, roomInventory);
             boolean booked = roomInventory.bookRoom("Single Room");
             if (booked) {
-                System.out.println("  ✓ Successfully booked: " + validBooking.getSummary());
+                System.out.println("  ??? Successfully booked: " + validBooking.getSummary());
             } else {
-                System.out.println("  ✗ Booking failed - no rooms available");
+                System.out.println("  ??? Booking failed - no rooms available");
             }
         } catch (BookingValidationException e) {
-            System.out.println("  ✗ Unexpected error: " + e.getUserFriendlyMessage());
+            System.out.println("  ??? Unexpected error: " + e.getUserFriendlyMessage());
         }
 
         // Now test booking when inventory is exhausted
@@ -169,14 +169,14 @@ public class UseCase9ErrorHandlingValidation {
             for (int i = 0; i < 10; i++) { // More than available inventory
                 boolean booked = roomInventory.bookRoom("Single Room");
                 if (booked) {
-                    System.out.println("  ✓ Booked room " + (i + 1));
+                    System.out.println("  ??? Booked room " + (i + 1));
                 } else {
-                    System.out.println("  ✗ Cannot book room " + (i + 1) + " - insufficient inventory");
+                    System.out.println("  ??? Cannot book room " + (i + 1) + " - insufficient inventory");
                     break; // Stop trying once we can't book anymore
                 }
             }
         } catch (Exception e) {
-            System.out.println("  ✗ Unexpected error during booking attempts: " + e.getMessage());
+            System.out.println("  ??? Unexpected error during booking attempts: " + e.getMessage());
         }
 
         // [STEP 5] Demonstrate error recovery and system stability
@@ -191,12 +191,12 @@ public class UseCase9ErrorHandlingValidation {
             validationService.validateReservation(recoveryTest, roomInventory);
             boolean booked = roomInventory.bookRoom("Double Room");
             if (booked) {
-                System.out.println("  ✓ System recovered and processed valid booking: " + recoveryTest.getSummary());
+                System.out.println("  ??? System recovered and processed valid booking: " + recoveryTest.getSummary());
             } else {
-                System.out.println("  ✗ Recovery test failed - no rooms available");
+                System.out.println("  ??? Recovery test failed - no rooms available");
             }
         } catch (BookingValidationException e) {
-            System.out.println("  ✗ Recovery test failed: " + e.getUserFriendlyMessage());
+            System.out.println("  ??? Recovery test failed: " + e.getUserFriendlyMessage());
         }
 
         // [STEP 6] Demonstrate validation service capabilities
