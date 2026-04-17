@@ -1,0 +1,19 @@
+﻿# Ignore compiled Java class files
+*.class
+**/*.class
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
+# Ignore build outputs
+target/
+build/
+
+# Ignore runtime persistence artifacts
+booking_data/
+**/booking_data/
+
+# Ignore temporary files
+*.log
+
