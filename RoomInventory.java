@@ -193,4 +193,28 @@ public class RoomInventory {
     public boolean isAvailable(String roomType) {
         return getAvailability(roomType) > 0;
     }
+
+    /**
+     * Get a snapshot of the current inventory for persistence.
+     * Returns a defensive copy to prevent external modifications.
+     *
+     * @return A copy of the current inventory HashMap
+     */
+    public HashMap<String, Integer> getInventorySnapshot() {
+        return new HashMap<>(inventory);
+    }
+
+    /**
+     * Restore room availability from persisted data.
+     * This method is used during system recovery to restore a saved room count.
+     *
+     * @param roomType The type of room to restore
+     * @param availableCount The persisted availability count
+     */
+    public void restoreRoomAvailability(String roomType, int availableCount) {
+        if (availableCount < 0) {
+            throw new IllegalArgumentException("Availability count cannot be negative");
+        }
+        inventory.put(roomType, availableCount);
+    }
 }
